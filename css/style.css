@@ -1,0 +1,191 @@
+/* body{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+} */
+@import url(<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,600;1,300;1,700&display=swap" rel="stylesheet">);
+
+:root {
+  --padding-container: 100px 0;
+  --color-1: #3498db;
+  --color-2: #00cc99;
+  --color-3: #ffd700;
+  --color-4: #ffb6c1;
+  --color-5: #ff7f50;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: var(--padding-container);
+}
+
+.hi {
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 800px;
+  position: relative;
+  display: grid;
+  grid-template-rows: 100px 1fr;
+  color: #fff;
+}
+.hi::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%),
+    url(../assets/image/backHi3.png);
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 95%, 0 80%);
+  z-index: -1;
+}
+
+/* -------------------------------------- NAV --------------------------------------------------- */
+.nav {
+  --padding-container: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.nav__logo {
+  width: 100px; /* Ajusta el ancho según tus necesidades */
+  height: 100px; /* Ajusta la altura según tus necesidades */
+  position: relative;
+  overflow: hidden;
+}
+
+.nav__logo img {
+  width: 100%; /* Ajusta para que la imagen llene el contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  display: block;
+  position: relative;
+  z-index: 1; /* Coloca la imagen sobre el fondo esmerilado */
+}
+
+.nav__title {
+    font-weight: 300;
+}
+
+.nav__link{
+    margin-left: auto;
+    padding: 100px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: max-content;
+    gap: 2em;
+}
+
+.nav__items{
+    list-style: none;
+    font-size: large;
+    font-weight: 300;
+    letter-spacing: 2px;
+
+}
+
+.nav__links{
+    color: #fff;
+    padding: 0;
+    text-decoration: none;
+}
+
+.nav__menu{
+    margin-left: auto;
+    cursor: pointer;
+    display: none;
+}
+
+.nav__img{
+    display: block;
+    width: 30px;
+}
+
+.nav__close{
+    display: none;
+}
+
+.nav__icons {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.nav__icon {
+    margin-left: 1em;
+}
+
+.nav__bag{
+    color: var(--color-2);
+}
+
+.nav__user{
+    color: var(--color-3);
+}
+/* ------------------------------------ HI CONTEINER -------------------------------------------- */
+.hi__container{
+    max-width: 800px;
+    --padding-container:0;
+    display: grid;
+    grid-auto-rows: max-content;
+    align-content: center;
+    gap: 1em;
+    padding-bottom: 100px;
+    text-align: center;
+}
+/* ------------------------------------ ABOUT -------------------------------------------- */
+
+
+/* ------------------------------------ VISITA -------------------------------------------- */
+
+ .card {
+            width: 300px;
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+            position: relative;
+        }
+
+        .product-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+
+        .product-details {
+            margin-top: 10px;
+        }
+
+        .quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-controls button {
+    background-color: #ddd;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
