@@ -1,3 +1,6 @@
+document.addEventListener('DOMContentLoaded', function () {
+  // Tu código JavaScript aquí
+});
 let carrito = [];
 
 function agregarAlCarrito(nombre, precio, cantidad) {
@@ -16,7 +19,10 @@ function agregarAlCarrito(nombre, precio, cantidad) {
 function actualizarCarrito() {
   const listaCarrito = document.getElementById('lista-carrito');
   const totalElemento = document.getElementById('total');
-
+const cantidadCarritoElemento = document.getElementById('cantidad-carrito');
+if (cantidadCarritoElemento) {
+  cantidadCarritoElemento.textContent = carrito.length; // O puedes sumar las cantidades de cada producto en el carrito
+}
   // Limpiar la lista antes de actualizar
   listaCarrito.innerHTML = '';
 
@@ -189,6 +195,6 @@ function calcularDescuento(subTotal) {
   const cuotas = parseInt(numeroCuotas, 10);
 
   if (isNaN(cuotas) || cuotas <= 1) {
-    return subTotal * 0.1; 
- }
+    return subTotal * 0.1;
+  }
 }

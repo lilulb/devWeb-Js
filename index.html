@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,13 +8,14 @@
     <title>Futura Forma</title>
     <link rel="shorcut icon" href="./assets/image/faviconff.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./main.js"></script>
 </head>
+
 <body>
     <header class="hi">
         <nav class="nav container">
             <div class="nav__logo">
-                <img src="./assets/image/logoFuturaForma3.png" alt="Logo Futura Forma dos figuras tridimencionales formando un cubo 3D">
+                <img src="./assets/image/logoFuturaForma3.png"
+                    alt="Logo Futura Forma dos figuras tridimencionales formando un cubo 3D">
             </div>
             <ul class="nav__link nav__link--menu">
                 <li class="nav__items">
@@ -32,12 +34,15 @@
             </div>
             <div class="nav__icons">
                 <div class="nav__icon nav__bag">
-                    <img src="./assets/image/bag.svg" class="nav__nav nav__bag" alt="Bag carrito compras Futura forma 3D">
+                    <button onclick="mostrarDetalleCarrito()" class="nav__nav nav__bag-btn">
+                        <img src="./assets/image/bag.svg" alt="Bag carrito compras Futura forma 3D">
+                    <span id="cantidad-carrito">0</span>
+                    </button>
                     <ul id="lista-carrito-header"></ul>
-                    <button onclick="mostrarDetalleCarrito()">Ver Detalle del Carrito</button>
                 </div>
                 <div class="nav__icon nav__user">
-                    <img src="./assets/image/user.svg" class="nav__nav nav__login" alt="Login usario de Futura Forma 3D ">
+                    <img src="./assets/image/user.svg" class="nav__nav nav__login"
+                        alt="Login usario de Futura Forma 3D ">
                 </div>
             </div>
         </nav>
@@ -48,63 +53,66 @@
     </header>
     <main>
         <section class="conteiner about">
-            <h2 class="subtitle"> Tu impresión 3D en solo 5 pasos</h2>
+            <h2 class="subtitle"> Tu impresión 3D en solo 4 pasos</h2>
 
             <div class="about__main">
                 <article class="about__icons">
-                    <img src="./assets/image/upload.svg" alt="iconono upload subir imagen cargar proyecto" class="about__icon">
+                    <img src="./assets/image/upload.svg" alt="iconono upload subir imagen cargar proyecto"
+                        class="about__icon">
                     <h3 class="about__title">Sube tu archivo 3D</h3>
-                    <p class="about__paragraph">Selecciona el archivo 3D o un archivo del proyecto que quieras relizar.</p>
+                    <p class="about__paragraph">Selecciona el archivo 3D o un archivo del proyecto que quieras relizar.
+                    </p>
                 </article>
                 <article class="about__icons">
-                    <img src="./assets/image/settings.svg" alt="iconono upload subir imagen cargar proyecto" class="about__icon">
+                    <img src="./assets/image/settings.svg" alt="iconono upload subir imagen cargar proyecto"
+                        class="about__icon">
                     <h3 class="about__title">Selecciona material, color y acabado</h3>
-                    <p class="about__paragraph">Puedes elegir el material mas adecuado, tu color preferido y el acabado mas optimo para la pieza.</p>
+                    <p class="about__paragraph">Puedes elegir el material mas adecuado, tu color preferido y el acabado
+                        mas optimo para la pieza.</p>
                 </article>
                 <article class="about__icons">
-                    <img src="./assets/image/price.svg" alt="iconono upload subir imagen cargar proyecto" class="about__icon">
-                    <h3 class="about__title">Obten el presupuesto online de inmediato</h3>
-                    <p class="about__paragraph">nos comprometemos a enviarte el presupuesto dentro de las 24 horas.</p>
+                    <img src="./assets/image/price.svg" alt="iconono upload subir imagen cargar proyecto"
+                        class="about__icon">
+                    <h3 class="about__title">Obten el presupuesto inmediato</h3>
+                    <p class="about__paragraph">Nos comprometemos a enviarte el presupuesto dentro de las 24 horas.</p>
                 </article>
                 <article class="about__icons">
-                    <img src="./assets/image/made.svg" alt="iconono upload subir imagen cargar proyecto" class="about__icon">
+                    <img src="./assets/image/made.svg" alt="iconono upload subir imagen cargar proyecto"
+                        class="about__icon">
                     <h3 class="about__title">Lo imprimimos en 3D</h3>
-                    <p class="about__paragraph">Imprimimos tu proyecto, lo que imaginaste, como lo imaginaste, en 3D</p>
-                </article>
-                <article class="about__icons">
-                    <img src="./assets/image/box.svg" alt="iconono upload subir imagen cargar proyecto" class="about__icon">
-                    <h3 class="about__title">Lo recibes</h3>
-                    <p class="about__paragraph">Recibes el prducto en tu casa o negocio.</p>
+                    <p class="about__paragraph">Imprimimos tu proyecto, lo que imaginaste, como lo imaginaste, en 3D.
+                    </p>
                 </article>
             </div>
         </section>
-
         <section class="knowdlege">
-            <div class="knowdlegue__conteiner conteiner">
-                <h2 class="subtitle">Visita nuestra tienda</h2>
-        
+            <div class=" conteiner">
+                <h2 class="subtitle subtitle__tienda">Tienda</h2>
+            </div>
+            <div class="knowdlege__conteiner">
                 <div class="card" id="product1">
                     <img src="./assets/image/llaveros.png" alt="peuqeño llavero en forma d epiña" class="product-image">
                     <div class="discount-badge">Oferta</div>
                     <div class="product-details">
                         <h3>Llaveros personalizados</h3>
-                        <p>Precio: $200.00</p>
+                        <p class="precio__product">Precio: $200.00</p>
                         <div class="quantity-controls">
                             <button onclick="restarCantidad('Llaveros personalizados')">-</button>
                             <span id="cantidad-llaveros">0</span>
                             <button onclick="sumarCantidad('Llaveros personalizados')">+</button>
-                            <button onclick="agregarAlCarrito('Llaveros personalizados', 200, getCantidad('Llaveros personalizados'))">Agregar
+                            <button
+                                onclick="agregarAlCarrito('Llaveros personalizados', 200, getCantidad('Llaveros personalizados'))">Agregar
                                 al Carrito</button>
                         </div>
                     </div>
                 </div>
-        
                 <div class="card" id="product2">
                     <img src="./assets/image/adornos.png" alt="Adorno ondulado en 3D " class="product-image">
                     <div class="discount-badge">Descuento</div>
                     <div class="product-details">
                         <h3>Adornos</h3>
-                        <p>Precio: $300.00</p><div class="quantity-controls">
+                        <p class="precio__product">Precio: $300.00</p>
+                        <div class="quantity-controls">
                             <button onclick="restarCantidad('Adornos')">-</button>
                             <span id="cantidad-Adornos">0</span>
                             <button onclick="sumarCantidad('Adornos')">+</button>
@@ -113,13 +121,14 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="card" id="product3">
                     <img src="./assets/image/mascaras.png" alt="Mascara impresion 3D" class="product-image">
                     <div class="discount-badge">Nuevo</div>
                     <div class="product-details">
                         <h3>Mascaras</h3>
-                        <p>Precio: $600.00</p><div class="quantity-controls">
+                        <p class="precio__product">Precio: $600.00</p>
+                        <div class="quantity-controls">
                             <button onclick="restarCantidad('Mascaras')">-</button>
                             <span id="cantidad-Mascaras">0</span>
                             <button onclick="sumarCantidad('Mascaras')">+</button>
@@ -129,14 +138,11 @@
                     </div>
                 </div>
             </div>
+            </div>
         </section>
     </main>
-    <div id="carrito">
-        <h2>Carrito</h2>
-        <ul id="lista-carrito"></ul>
-        <p>Total: $<span id="total">0</span></p>
-        <button onclick="calcularCuotas()">Calcular Cuotas</button>
-        <button onclick="calcularValorFinal()">Calcular Valor Final</button>
-    </div>
+    <script src="./main.js"></script>
+
 </body>
+
 </html>
