@@ -1,7 +1,37 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Tu código JavaScript aquí
+  const sumaBtn = document.getElementById('sumaBtn');
+  const restaBtn = document.getElementById('restaBtn');
+  const multiplicacionBtn = document.getElementById('multiplicacionBtn');
+  const divisionBtn = document.getElementById('divisionBtn');
+  const porcentajeBtn = document.getElementById('porcentajeBtn');
+
+  sumaBtn.addEventListener('click', function () {
+    realizarOperacion('+');
+  });
+
+  restaBtn.addEventListener('click', function () {
+    realizarOperacion('-');
+  });
+
+  multiplicacionBtn.addEventListener('click', function () {
+    realizarOperacion('*');
+  });
+
+  divisionBtn.addEventListener('click', function () {
+    realizarOperacion('/');
+  });
+
+  porcentajeBtn.addEventListener('click', function () {
+    realizarOperacion('%');
+  });
 });
+
 let carrito = [];
+
+function toggleCarrito() {
+    const carritoContainer = document.getElementById('carrito-container');
+    carritoContainer.classList.toggle('visible');
+}
 
 function agregarAlCarrito(nombre, precio, cantidad) {
   const productoEnCarrito = carrito.find((item) => item.nombre === nombre);
@@ -19,11 +49,10 @@ function agregarAlCarrito(nombre, precio, cantidad) {
 function actualizarCarrito() {
   const listaCarrito = document.getElementById('lista-carrito');
   const totalElemento = document.getElementById('total');
-const cantidadCarritoElemento = document.getElementById('cantidad-carrito');
-if (cantidadCarritoElemento) {
-  cantidadCarritoElemento.textContent = carrito.length; // O puedes sumar las cantidades de cada producto en el carrito
-}
-  // Limpiar la lista antes de actualizar
+  const cantidadCarritoElemento = document.getElementById('cantidad-carrito');
+  if (cantidadCarritoElemento) {
+    cantidadCarritoElemento.textContent = carrito.length;
+  }
   listaCarrito.innerHTML = '';
 
   let total = 0;
@@ -45,7 +74,6 @@ function sumarCantidad(nombre) {
   cantidad += 1;
   cantidadElemento.textContent = cantidad;
 
-  // Actualizar el carrito al cambiar la cantidad
   const precio = obtenerPrecioPorNombre(nombre);
   agregarAlCarrito(nombre, precio, 1);
 }
@@ -57,7 +85,6 @@ function restarCantidad(nombre) {
 
   cantidadElemento.textContent = cantidad;
 
-  // Actualizar el carrito al cambiar la cantidad
   const precio = obtenerPrecioPorNombre(nombre);
   agregarAlCarrito(nombre, precio, -1);
 }
@@ -72,11 +99,6 @@ function obtenerPrecioPorNombre(nombre) {
   const producto = productos.find((prod) => prod.nombre === nombre);
 
   return producto ? producto.precio : 0;
-}
-
-function getCantidad(nombre) {
-  const cantidadElemento = document.getElementById(`cantidad-${nombre}`);
-  return parseInt(cantidadElemento.textContent, 10);
 }
 
 function mostrarOpcionesCompra() {
@@ -99,6 +121,7 @@ function mostrarOpcionesCompra() {
       calcularValorFinal();
       break;
     case '3':
+      toggleCarrito(); // Cerrar el carrito
       break;
     default:
       alert('Opción no válida');
@@ -158,10 +181,6 @@ function calcularValorFinal() {
   );
 }
 
-function mostrarDetalleCarrito() {
-  mostrarOpcionesCompra();
-}
-
 function calcularDetalleCarrito() {
   let detalle = 'Detalle de la compra:\n\n';
 
@@ -192,9 +211,19 @@ function calcularSubTotal() {
 
 function calcularDescuento(subTotal) {
   const numeroCuotas = prompt('Ingrese la cantidad de cuotas:');
-  const cuotas = parseInt(numeroCuotas, 10);
 
-  if (isNaN(cuotas) || cuotas <= 1) {
+  if (!numeroCuotas || isNaN(numeroCuotas) || numeroCuotas <= 1) {
     return subTotal * 0.1;
   }
+
+  return 0;
 }
+function abrirCarrito() {
+  const carritoContainer = document.getElementById('carrito-container');
+  carritoContainer.classList.add('visible');
+}
+
+// Evitar cerrar el carrito al hacer clic dentro del modal
+document.getElementById('carrito-container').addEventListener('click', function(event) {
+  event.stopPropagation();
+});

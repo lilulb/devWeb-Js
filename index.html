@@ -36,9 +36,11 @@
                 <div class="nav__icon nav__bag">
                     <button onclick="mostrarDetalleCarrito()" class="nav__nav nav__bag-btn">
                         <img src="./assets/image/bag.svg" alt="Bag carrito compras Futura forma 3D">
-                    <span id="cantidad-carrito">0</span>
+                        <span id="cantidad-carrito">0</span>
                     </button>
                     <ul id="lista-carrito-header"></ul>
+                    <button onclick="abrirCarrito()" class="nav__nav nav__bag-btn">Abrir Carrito</button>
+
                 </div>
                 <div class="nav__icon nav__user">
                     <img src="./assets/image/user.svg" class="nav__nav nav__login"
@@ -141,6 +143,14 @@
             </div>
         </section>
     </main>
+    <div id="carrito-container" class="overlay" onclick="toggleCarrito()">
+        <div class="modal" onclick="event.stopPropagation();">
+            <h2>Carrito de Compras</h2>
+            <ul id="lista-carrito"></ul>
+            <p>Total: $<span id="total">0.00</span></p>
+            <button onclick="toggleCarrito()">Cerrar Carrito</button>
+        </div>
+    </div>
     <script src="./main.js"></script>
 
 </body>
